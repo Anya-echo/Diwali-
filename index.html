@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#170d27" />
+  <title>Diwali Wonderland ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient-glow"></div>
+  <canvas id="sparkleCanvas" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Diwali Wonderland home"><span>✦</span> DIWALI WONDERLAND</a>
+    <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">♫ Sound: Off</button>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">A LITTLE MAGIC. A LOT OF LIGHT.</p>
+        <h1>Happy <em>Diwali</em></h1>
+        <p class="hero-copy">May your days sparkle with joy, your home glow with love, and your heart shine a little brighter.</p>
+        <button class="primary-btn" id="enterBtn" type="button">ENTER THE CELEBRATION <span>✧</span></button>
+        <p class="scroll-note">SCROLL TO EXPLORE <span>↓</span></p>
+      </div>
+      <div class="hero-art" aria-label="Decorative glowing diya">
+        <div class="halo halo-one"></div><div class="halo halo-two"></div>
+        <div class="hero-star star-a">✦</div><div class="hero-star star-b">✧</div><div class="hero-star star-c">✦</div>
+        <div class="diya-flame"></div>
+        <div class="diya-bowl"><div class="diya-rim"></div><div class="diya-pattern">✧ ✦ ✧</div></div>
+        <div class="diya-base"></div>
+        <p class="art-caption">LET YOUR LIGHT SHINE</p>
+      </div>
+      <div class="hero-bottom">✦ &nbsp; LIGHT • LOVE • LAUGHTER &nbsp; ✦</div>
+    </section>
+
+    <section class="section dashboard" id="celebrate">
+      <div class="section-heading">
+        <p class="eyebrow">THE FESTIVAL STARTS HERE</p>
+        <h2>Your celebration <em>dashboard</em></h2>
+        <p>Choose your little moment of Diwali magic.</p>
+      </div>
+      <div class="activity-grid">
+        <button class="activity-card" data-target="crackers" type="button">
+          <span class="activity-icon">✺</span><span class="card-number">01 / PLAY</span>
+          <strong>Virtual Crackers</strong><small>Tap to create a sky full of sparkle.</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="activity-card" data-target="rangoli" type="button">
+          <span class="activity-icon">❋</span><span class="card-number">02 / CREATE</span>
+          <strong>Rangoli Studio</strong><small>Build your own colourful pattern.</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="activity-card" data-target="wishes" type="button">
+          <span class="activity-icon">✉</span><span class="card-number">03 / OPEN</span>
+          <strong>Wish Gallery</strong><small>Open a tiny envelope of happiness.</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="activity-card" data-target="games" type="button">
+          <span class="activity-icon">✧</span><span class="card-number">04 / PLAY</span>
+          <strong>Festival Mini Games</strong><small>Catch lights and tap the diyas.</small><span class="card-arrow">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section crackers-section" id="crackers">
+      <div class="section-heading">
+        <p class="eyebrow">A DIGITAL SKY SHOW</p>
+        <h2>Choose your <em>sparkle</em></h2>
+        <p>Pick an effect, then tap the stage. Every sparkle is a screen animation.</p>
+      </div>
+      <div class="cracker-layout">
+        <div class="cracker-menu">
+          <button class="cracker-option active" data-effect="flower" type="button"><span>✺</span><span><b>Flower Pot</b><small>Golden fountain of light</small></span></button>
+          <button class="cracker-option" data-effect="chakra" type="button"><span>❂</span><span><b>Ground Chakra</b><small>A spinning ring of colour</small></span></button>
+          <button class="cracker-option" data-effect="sparkler" type="button"><span>✧</span><span><b>Magic Sparkler</b><small>A trail of tiny stars</small></span></button>
+          <button class="cracker-option" data-effect="sky" type="button"><span>✹</span><span><b>Sky Fireworks</b><small>A burst above the skyline</small></span></button>
+          <button class="cracker-option" data-effect="confetti" type="button"><span>❋</span><span><b>Festival Confetti</b><small>A shower of celebration</small></span></button>
+        </div>
+        <div class="show-stage" id="showStage">
+          <div class="stage-stars">✦　·　✧　　　✦　　·</div>
+          <div class="stage-city"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="stage-ground"></div>
+          <div class="stage-diya">🪔</div>
+          <div class="stage-hint" id="stageHint">YOUR SHOW IS READY<br><small>Tap anywhere in this stage</small></div>
+          <div class="show-count" id="showCount">0 sparkles created</div>
+        </div>
+      </div>
+      <div class="stage-controls">
+        <p id="selectedEffectText">Selected: Flower Pot</p>
+        <button class="primary-btn small-btn" id="showBtn" type="button">MAKE IT SPARKLE ✦</button>
+        <button class="outline-btn" id="clearStage" type="button">Clear stage</button>
+      </div>
+      <p class="tiny-note">This is a visual celebration only — no real crackers, flames, or lighting are involved.</p>
+    </section>
+
+    <section class="section rangoli-section" id="rangoli">
+      <div class="section-heading">
+        <p class="eyebrow">MAKE SOMETHING BEAUTIFUL</p>
+        <h2>Rangoli <em>studio</em></h2>
+        <p>Choose a colour and tap the petals to decorate your design.</p>
+      </div>
+      <div class="rangoli-workspace">
+        <div class="rangoli-board" id="rangoliBoard" aria-label="Interactive rangoli design">
+          <div class="rangoli-ring ring-outer"></div><div class="rangoli-ring ring-inner"></div>
+          <div class="rangoli-center">✦</div>
+          <button class="petal p1" aria-label="Decorate petal 1"></button><button class="petal p2" aria-label="Decorate petal 2"></button>
+          <button class="petal p3" aria-label="Decorate petal 3"></button><button class="petal p4" aria-label="Decorate petal 4"></button>
+          <button class="petal p5" aria-label="Decorate petal 5"></button><button class="petal p6" aria-label="Decorate petal 6"></button>
+          <button class="petal p7" aria-label="Decorate petal 7"></button><button class="petal p8" aria-label="Decorate petal 8"></button>
+          <button class="petal p9" aria-label="Decorate petal 9"></button><button class="petal p10" aria-label="Decorate petal 10"></button>
+          <button class="petal p11" aria-label="Decorate petal 11"></button><button class="petal p12" aria-label="Decorate petal 12"></button>
+        </div>
+        <div class="rangoli-tools">
+          <h3>Your colour palette</h3>
+          <div class="palette" id="palette">
+            <button class="swatch selected" data-color="#e9ad4b" style="--swatch:#e9ad4b" aria-label="Gold"></button>
+            <button class="swatch" data-color="#c84c79" style="--swatch:#c84c79" aria-label="Rose"></button>
+            <button class="swatch" data-color="#8c70d6" style="--swatch:#8c70d6" aria-label="Violet"></button>
+            <button class="swatch" data-color="#5aa99a" style="--swatch:#5aa99a" aria-label="Teal"></button>
+            <button class="swatch" data-color="#f2d7a1" style="--swatch:#f2d7a1" aria-label="Cream"></button>
+          </div>
+          <p class="tool-hint">Tap any petal to paint it. Make every petal yours!</p>
+          <button class="outline-btn" id="resetRangoli" type="button">Reset rangoli</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wishes-section" id="wishes">
+      <div class="section-heading">
+        <p class="eyebrow">A NOTE JUST FOR YOU</p>
+        <h2>Little wishes, <em>big warmth</em></h2>
+        <p>Choose an envelope and open a little message.</p>
+      </div>
+      <div class="envelope-grid">
+        <button class="envelope-card" data-wish="May your home be filled with laughter, your heart with peace, and your days with golden moments. Happy Diwali!" type="button"><span>✉</span><b>For happiness</b><small>Open your wish</small></button>
+        <button class="envelope-card" data-wish="May every new beginning bring you closer to your dreams. Keep shining, today and always." type="button"><span>✉</span><b>For new beginnings</b><small>Open your wish</small></button>
+        <button class="envelope-card" data-wish="Wishing you sweet memories, kind people, unexpected joy, and a thousand reasons to smile." type="button"><span>✉</span><b>For someone special</b><small>Open your wish</small></button>
+      </div>
+      <div class="wish-reveal" id="wishReveal" role="status" aria-live="polite"><span>✦</span><p>Your wish will appear here.</p></div>
+    </section>
+
+    <section class="section games-section" id="games">
+      <div class="section-heading">
+        <p class="eyebrow">A LITTLE FESTIVE FUN</p>
+        <h2>Mini <em>games</em></h2>
+        <p>Two tiny games for your celebration break.</p>
+      </div>
+      <div class="games-grid">
+        <div class="game-card">
+          <span class="game-icon">🪔</span><h3>Light the Diyas</h3>
+          <p>Tap all the diyas to make the row glow.</p>
+          <div class="diya-row" id="diyaRow"><button type="button">🪔</button><button type="button">🪔</button><button type="button">🪔</button><button type="button">🪔</button><button type="button">🪔</button></div>
+          <p class="game-status" id="diyaStatus">0 of 5 glowing</p>
+          <button class="outline-btn" id="resetDiyas" type="button">Start again</button>
+        </div>
+        <div class="game-card catch-card">
+          <span class="game-icon">✨</span><h3>Catch the Sparkles</h3>
+          <p>Tap the stars before the round ends. Ready?</p>
+          <div class="catch-area" id="catchArea"><span class="catch-instruction">Press start to play</span></div>
+          <p class="game-status" id="catchStatus">Score: 0</p>
+          <button class="primary-btn small-btn" id="startCatch" type="button">START GAME</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing section">
+      <div class="closing-diya">🪔</div>
+      <p class="eyebrow">UNTIL THE NEXT SPARKLE</p>
+      <h2>Keep shining.<br><em>Keep celebrating.</em></h2>
+      <p>Wishing you and your loved ones a beautiful Diwali.</p>
+      <button class="outline-btn" id="backTop" type="button">Back to the beginning ↑</button>
+    </section>
+  </main>
+
+  <footer>MADE WITH ✦ AND A LITTLE DIWALI MAGIC <span>© DIWALI WONDERLAND</span></footer>
+  <div class="wish-modal" id="wishModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="closeModal" aria-label="Close" type="button">×</button>
+      <div class="modal-symbol">✉</div><p class="eyebrow">A LITTLE NOTE FOR YOU</p>
+      <h2 id="modalTitle">A Diwali wish</h2><p id="modalMessage"></p>
+      <button class="primary-btn small-btn" id="modalOkay" type="button">THANK YOU ✦</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
